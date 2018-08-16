@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    #region Variables
     [Header("Movement")]
     public float moveSpeed = 5;
     public float jumpHeight = 5;
@@ -15,9 +15,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Camera Variables")]
     public float sensitvity = 5;
     private GameObject myCamera;
-
-
-
+    #endregion
+    #region Raycast
     // Implement this OnDrawGizmos if you want to draw gizmos that are also pickable and always drawn
     private void OnDrawGizmosSelected()
     {
@@ -25,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(groundRay.origin, groundRay.origin + groundRay.direction * rayDistance);
     }
-
+    #endregion
     // Use this for initialization
     void Start()
     {
@@ -60,7 +59,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 force = new Vector3(moveDir.x, rigidbody.velocity.y, moveDir.z);
 
         #endregion
-
         #region Jump
         //Check if space is pressed
         if (Input.GetButton("Jump")&& IsGrounded())
@@ -70,15 +68,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         #endregion
-
-        //Direction moving
+        #region Direction moving
         rigidbody.velocity = force;
 
         if (moveDir.magnitude > 0)
         {
             transform.rotation = Quaternion.LookRotation(moveDir);
         }
-
+        #endregion
         #region Respawn
         if (this.transform.position.y < -10)
         {
