@@ -1,1 +1,1 @@
-# AI-Class
+# ArtificialIntelligence
