@@ -6,17 +6,18 @@ namespace SteeringBehaviours
 {
     public class AIAgentDirector : MonoBehaviour
     {
-
-        // Use this for initialization
-        void Start()
-        {
-
-        }
+        public AIAgent agent;
 
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
-
+            Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(camRay, out hit, 1000f))
+            {
+                agent.SetTarget(hit.point);
+            }
         }
+        
     }
 }

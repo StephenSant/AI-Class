@@ -9,8 +9,8 @@ namespace SteeringBehaviours
     {
 
         public NavMeshAgent agent;
-        public Transform target;
-        
+
+        private Vector3 point;
 
         // Use this for initialization
         void Start()
@@ -21,7 +21,14 @@ namespace SteeringBehaviours
         // Update is called once per frame
         void Update()
         {
-            agent.SetDestination(target.position);
+            if (point.magnitude > 0)
+            {
+                agent.SetDestination(point);
+            }
+        }
+        public void SetTarget(Vector3 point)
+        {
+            this.point = point;
         }
     }
 }
