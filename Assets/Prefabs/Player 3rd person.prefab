@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4678736845138180}
   - component: {fileID: 33774983473523600}
   - component: {fileID: 23425907978262000}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arm (Left)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 136288738503630898}
   - component: {fileID: 54017712247311252}
   - component: {fileID: 114939501381821518}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player 3rd person
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 4388755255649080}
   - component: {fileID: 33485631370071522}
   - component: {fileID: 23968807050848304}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arm (Right)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
