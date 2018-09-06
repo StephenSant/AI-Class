@@ -7,28 +7,30 @@ namespace SteeringBehaviours
 {
     public class AIAgent : MonoBehaviour
     {
+        public float maxSpeed=10;
+        public float maxDis=5;
+        public bool updatePos=true, updateRot=true;
+        public Vector3 velocity;
 
-        public NavMeshAgent agent;
+        private Vector3 force;
+        private List<SteeringBehaviour> behaviours;
+        private NavMeshAgent agent;
 
-        private Vector3 point;
-
-        // Use this for initialization
-        void Start()
+        private void Awake()
         {
-            agent = GetComponent<NavMeshAgent>();
+            
         }
-
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
-            if (point.magnitude > 0)
-            {
-                agent.SetDestination(point);
-            }
+            
         }
-        public void SetTarget(Vector3 point)
+        private void ComputeForces()
         {
-            this.point = point;
+
+        }
+        private void ApplyVelocity()
+        {
+
         }
     }
 }

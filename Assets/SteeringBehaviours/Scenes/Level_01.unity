@@ -104667,6 +104667,7 @@ GameObject:
   - component: {fileID: 2039957638}
   - component: {fileID: 2039957637}
   - component: {fileID: 2039957640}
+  - component: {fileID: 2039957641}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -104752,7 +104753,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdd184ba12f9bf4f873e0560918ccf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 2039957637}
+  maxSpeed: 10
+  maxDis: 5
+  updatePos: 1
+  updateRot: 1
+  velocity: {x: 0, y: 0, z: 0}
+--- !u!114 &2039957641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2039957635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 099b47f3ffa36f24789a72db8f2c2877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weighting: 0
+  owner: {fileID: 2039957640}
+  target: {fileID: 1473016603}
+  stoppingDistance: 1
 --- !u!1 &2041994434
 GameObject:
   m_ObjectHideFlags: 0

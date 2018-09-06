@@ -15,7 +15,7 @@ namespace SteeringBehaviours
             RaycastHit hit;
             if (Physics.Raycast(camRay, out hit, 1000f))
             {
-                agent.SetTarget(hit.point);
+                //agent.SetTarget(hit.point);
             }
         }
         
