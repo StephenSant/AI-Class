@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace SteeringBehaviours
+namespace Cameras
 {
     public class CameraBounds : MonoBehaviour
     {
         public Vector3 size = new Vector3(50, 0, 20);
+
+        void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(transform.position, size);
+        }
 
         public Vector3 GetAdjustedPosition(Vector3 incomingPos)
         {
@@ -36,12 +42,12 @@ namespace SteeringBehaviours
             {
                 incomingPos.z = pos.z - halfSize.z;
             }
-            return Vector3.zero;
+            return incomingPos;
         }
-        // Update is called once per frame
+        /*// Update is called once per frame
         void Update()
         {
             GetAdjustedPosition(transform.position);
-        }
+        }*/
     }
 }
