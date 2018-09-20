@@ -6,24 +6,39 @@ namespace SteeringBehaviours
 {
     public class AIAgentDirector : MonoBehaviour
     {
-        public AIAgent agent;
+        public AIAgent[] agents;
         public Transform holdingPoint;
-        // Update is called once per frame
+
+        private void OnDrawGizmosSelected()
+        {
+            Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(camRay.origin, camRay.origin + camRay.direction * 1000f);
+        }
+
         void FixedUpdate()
         {
             if (Input.GetMouseButtonDown(0))
             {
-                // Try to get seek component on agent
-                Seek seek = agent.GetComponent<Seek>();
-                // if seek is not null
-                if (seek)
+                Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if (Physics.Raycast(camRay, out hit, 1000f))
                 {
-                    Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-                    RaycastHit hit;
-                    if (Physics.Raycast(camRay, out hit, 1000f))
+                    foreach (var agent in agents)
                     {
+                        Seek seek = agent.GetComponent<Seek>();
+                        Flee flee = agent.GetComponent<Flee>();
                         holdingPoint.position = hit.point;
-                        seek.target = holdingPoint;
+
+                        if (seek)
+                        {
+                            seek.target = holdingPoint;
+                        }
+
+                        if (flee)
+                        {
+                            flee.target = holdingPoint;
+                        }
                     }
                 }
             }

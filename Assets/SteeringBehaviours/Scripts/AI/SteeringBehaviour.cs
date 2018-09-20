@@ -6,7 +6,12 @@ namespace SteeringBehaviours
     public abstract class SteeringBehaviour : MonoBehaviour
     {
         public float weighting;
-        public AIAgent owner;
+        [HideInInspector] public AIAgent owner;
+
+        private void Awake()
+        {
+            owner = GetComponent<AIAgent>();
+        }
 
         public virtual Vector3 GetForce()
         {
